@@ -9,7 +9,7 @@ import Dashboard from './components/Dashbord';
 import ProgressWidget from './components/Dashboard/ProgressWidget';
 import RecommendationList from './components/Dashboard/RecommendationList';
 import Quizzes from './components/Quizzes';
-
+import CoursePage from './components/Dashboard/course/coursepages';
 
 
 const router = createBrowserRouter([
@@ -61,6 +61,15 @@ const router = createBrowserRouter([
       </div>
     ),
   },
+  {
+    path: "/coursepage",
+    element: (
+      <div>
+        <CoursePage/>
+      </div>
+    ),
+  },
+
 
 
   
