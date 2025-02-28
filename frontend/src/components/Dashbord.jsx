@@ -114,7 +114,7 @@ const Dashboard = () => {
           <RecommendationList recommendations={userData.recommendations} />
         </div>
 
-        {/* Weekly Goals */}
+        {/* Weekly Goals */}  
         <div className="bg-white rounded-2xl shadow-xl p-8 lg:col-span-2">
           <h2 className="text-2xl font-bold text-black mb-6">Weekly Goals</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

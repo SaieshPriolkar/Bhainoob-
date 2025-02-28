@@ -64,7 +64,7 @@ const Quizzes = () => {
     
     if (showResults) {
       if (option === quiz.answer) {
-        return `${baseClass} bg-gradient-to-r from-green-400 to-green-500 text-white border-green-400 shadow-md`;
+        return `${baseClass} bg-gradient-to-r from-indigo-300 to-black-500 text-white border-green-400 shadow-md`;
       } else if (selectedAnswers[quiz.id] === option) {
         return `${baseClass} bg-gradient-to-r from-red-400 to-red-500 text-white border-red-400`;
       } else {
@@ -73,14 +73,14 @@ const Quizzes = () => {
     }
     
     return selectedAnswers[quiz.id] === option
-      ? `${baseClass} bg-gradient-to-r from-indigo-400 to-blue-500 text-white border-blue-400 shadow-md transform scale-105`
-      : `${baseClass} bg-white text-indigo-700 border-indigo-100 hover:border-indigo-300 hover:shadow-sm`;
+      ? `${baseClass} bg-gradient-to-r from-purple-400 to-violet-500 text-white border-violet-400 shadow-md transform scale-105`
+      : `${baseClass} bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-700 border-blue-200 hover:border-blue-300 hover:bg-gradient-to-r hover:from-blue-100 hover:to-indigo-100 hover:shadow-sm`;
   };
 
   return (
     <div className="absolute top-0 left-0 min-h-screen w-full bg-gradient-to-br from-indigo-50 to-purple-50 p-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 to indigo-800 mb-8 text-center">Knowledge Quiz</h1>
+        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-800 to indigo-100 mb-8 text-center">Knowledge Quiz</h1>
         
         {!difficulty ? (
           <div className="bg-white shadow-lg rounded-xl p-8 text-center border border-indigo-100">
