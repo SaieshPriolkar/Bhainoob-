@@ -10,7 +10,7 @@ import ForgotPassword from './pages/forgotPassword';
 import Landing from './components/Landing';
 import Quiz from './components/Quizzes';
 import CourseList from './components/Dashboard/course/coursepages';
-
+import Profile from "./components/profile";
 function App() {
   return (
     <Router>
@@ -28,7 +28,7 @@ function App() {
             <Route path="/dashboard" element={<Dashbord />} />
             <Route path="/quizzes" element={<Quiz />} />
             <Route path="/Courselist" element={<CourseList/>} />
-
+            <Route path="/profile" element={<Profile/>} />
 
           </Routes>
         </div>
