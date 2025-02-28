@@ -1,9 +1,5 @@
 import React from "react";
 import "./App.css";
-<<<<<<< HEAD
-
-=======
->>>>>>> 8d3f21ce848522c91cd2aca0d3f6a4eeeb5de52e
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
