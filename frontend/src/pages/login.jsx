@@ -14,7 +14,7 @@ export default function Login() {
   // Redirect if user is already logged in
   useEffect(() => {
     if (currentUser) {
-      navigate('/');
+      navigate('/dashboard');
     }
   }, [currentUser, navigate]);
 
@@ -25,7 +25,7 @@ export default function Login() {
       setError('');
       setLoading(true);
       await login(email, password);
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       setError('Failed to sign in. Please check your credentials.');
       console.error(error);
@@ -42,7 +42,7 @@ export default function Login() {
       setLoading(true);
       // Try popup first
       await googleSignIn();
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       // If popup is blocked, use redirect method instead
       if (error.code === 'auth/popup-blocked') {
