@@ -305,7 +305,7 @@ const CoursesPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-6">
+    <div className=" absolute left-0 top-0 min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-6">
       {/* Header */}
       <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center">

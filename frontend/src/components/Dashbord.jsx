@@ -3,12 +3,20 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import CourseCard from './Dashboard/CourseCard';
 import ProgressWidget from '../components/Dashboard/ProgressWidget';
 import RecommendationList from '../components/Dashboard/RecommendationList';
+<<<<<<< HEAD
 import { User, ChevronDown, LogOut, Settings, HelpCircle } from 'lucide-react';
+=======
+import { useNavigate } from 'react-router-dom';
+>>>>>>> 8d3f21ce848522c91cd2aca0d3f6a4eeeb5de52e
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+<<<<<<< HEAD
   const [dropdownOpen, setDropdownOpen] = useState(false);
+=======
+  const navigate = useNavigate();
+>>>>>>> 8d3f21ce848522c91cd2aca0d3f6a4eeeb5de52e
 
   // Simulated data - to be replaced with API calls
   useEffect(() => {
@@ -78,6 +86,7 @@ const Dashboard = () => {
             </h1>
             <p className="text-black">Continue your learning journey</p>
           </div>
+<<<<<<< HEAD
           <div className="flex flex-col sm:flex-row items-center mt-4 md:mt-0 space-y-3 sm:space-y-0 sm:space-x-4">
             {/* Streak Card */}
             <div className="bg-blue-50 p-4 rounded-xl flex items-center shadow-md">
@@ -132,6 +141,27 @@ const Dashboard = () => {
                 </div>
               )}
             </div>
+=======
+          <div className="flex items-center mt-4 md:mt-0 space-x-4">
+            <button 
+              onClick={() => window.location.href = "/profile"} 
+              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
+            >
+              <span className="mr-2">Profile</span>
+            </button>
+            <button 
+              onClick={() => navigate("/quizzes")}
+              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
+            >
+              <span className="mr-2">Quizzes</span>
+            </button>
+            <button 
+              onClick={() => navigate("/Courselist")}
+              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
+            >
+              <span className="mr-2">Course List</span>
+            </button>
+>>>>>>> 8d3f21ce848522c91cd2aca0d3f6a4eeeb5de52e
           </div>
         </div>
       </div>
@@ -206,6 +236,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       {/* Enhanced floating quiz button */}
       <div className="fixed bottom-6 right-6 z-10 group">
@@ -215,6 +246,8 @@ const Dashboard = () => {
           Take a Quiz
         </button>
       </div>
+=======
+>>>>>>> 8d3f21ce848522c91cd2aca0d3f6a4eeeb5de52e
     </div>
   );
 };

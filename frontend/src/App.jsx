@@ -1,15 +1,20 @@
 import React from "react";
 import "./App.css";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8d3f21ce848522c91cd2aca0d3f6a4eeeb5de52e
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Dashbord from './components/Dashbord';
 import Login from './pages/login';
 import Signup from './pages/signup';
 import ForgotPassword from './pages/forgotPassword';
-
+import Landing from './components/Landing';
+import Quiz from './components/Quizzes';
+import CourseList from './components/Dashboard/course/coursepages';
+import Profile from "./components/profile";
 function App() {
   return (
     <Router>
@@ -18,13 +23,17 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={
-              <ProtectedRoute>
-                <Dashbord />
-              </ProtectedRoute>
+            
+                <Landing />
             } />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/dashboard" element={<Dashbord />} />
+            <Route path="/quizzes" element={<Quiz />} />
+            <Route path="/Courselist" element={<CourseList/>} />
+            <Route path="/profile" element={<Profile/>} />
+
           </Routes>
         </div>
       </AuthProvider>
