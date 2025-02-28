@@ -11,14 +11,17 @@ const Dashboard = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
+const Dashboard = () => {
+  const [userData, setUserData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+
   // Simulated data - to be replaced with API calls
   useEffect(() => {
     // Fetch user data from API
     setTimeout(() => {
       setUserData({
         name: "Alex Johnson",
-        email: "alex.johnson@example.com",
-        accountType: "Premium",
         progress: [
           { name: 'Week 1', score: 65 },
           { name: 'Week 2', score: 70 },
@@ -43,21 +46,6 @@ const Dashboard = () => {
       setIsLoading(false);
     }, 1000);
   }, []);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = () => {
-      setDropdownOpen(false);
-    };
-    
-    if (dropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [dropdownOpen]);
 
   if (isLoading) {
     return (
@@ -87,13 +75,13 @@ const Dashboard = () => {
               <span className="mr-2">Profile</span>
             </button>
             <button 
-              onClick={() => navigate("/quizzes")}
+              onClick={() => window.location.href = "/quizzes"} 
               className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
             >
               <span className="mr-2">Quizzes</span>
             </button>
             <button 
-              onClick={() => navigate("/Courselist")}
+              onClick={() => window.location.href = "/courselist"} 
               className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
             >
               <span className="mr-2">Course List</span>
@@ -144,7 +132,7 @@ const Dashboard = () => {
           <RecommendationList recommendations={userData.recommendations} />
         </div>
 
-        {/* Weekly Goals */}  
+        {/* Weekly Goals */}
         <div className="bg-white rounded-2xl shadow-xl p-8 lg:col-span-2">
           <h2 className="text-2xl font-bold text-black mb-6">Weekly Goals</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -152,21 +140,21 @@ const Dashboard = () => {
               title="Study Time" 
               current={12} 
               target={15} 
-              unit="Hours"
+              unit="hours"
               color="bg-blue-400" 
             />
             <ProgressWidget 
               title="Quizzes Completed" 
               current={7} 
               target={10} 
-              unit="Quizzes"
+              unit="quizzes"
               color="bg-blue-500" 
             />
             <ProgressWidget 
               title="New Concepts" 
               current={18} 
               target={25} 
-              unit="Concepts"
+              unit="concepts"
               color="bg-blue-600" 
             />
           </div>
@@ -182,6 +170,7 @@ const Dashboard = () => {
           Take a Quiz
         </button>
       </div>
+      
     </div>
   );
 };
