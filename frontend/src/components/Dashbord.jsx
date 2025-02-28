@@ -3,18 +3,15 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import CourseCard from './Dashboard/CourseCard';
 import ProgressWidget from '../components/Dashboard/ProgressWidget';
 import RecommendationList from '../components/Dashboard/RecommendationList';
-import { User, ChevronDown, LogOut, Settings, HelpCircle } from 'lucide-react';
+import { User, ChevronDown, LogOut, Settings, HelpCircle, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+
 const Dashboard = () => {
-  const [userData, setUserData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
-
-const Dashboard = () => {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Simulated data - to be replaced with API calls
   useEffect(() => {
@@ -47,6 +44,13 @@ const Dashboard = () => {
     }, 1000);
   }, []);
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen bg-blue-100">
@@ -67,21 +71,47 @@ const Dashboard = () => {
             </h1>
             <p className="text-black">Continue your learning journey</p>
           </div>
-          <div className="flex items-center mt-4 md:mt-0 space-x-4">
+          
+          {/* Search Bar */}
+          <div className="w-full md:w-auto mt-4 md:mt-0 mb-4 md:mb-0">
+            <form onSubmit={handleSearch} className="flex items-center">
+              <div className="relative w-full md:w-64 lg:w-80">
+                <input
+                  type="text"
+                  placeholder="Search courses, topics..."
+                  className="w-full px-4 py-3 pl-10 pr-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <Search className="h-5 w-5 text-gray-400" />
+                </div>
+                <button
+                  type="submit"
+                  className="absolute inset-y-0 right-0 flex items-center px-4 text-gray-700 bg-gray-100 rounded-r-xl hover:bg-gray-200"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
+          </div>
+          
+          {/* Navigation Buttons */}
+          <div className="flex items-center space-x-4">
             <button 
-              onClick={() => window.location.href = "/profile"} 
+              onClick={() => navigate('/profile')} 
               className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
             >
               <span className="mr-2">Profile</span>
             </button>
             <button 
-              onClick={() => window.location.href = "/quizzes"} 
+              onClick={() => navigate('/quizzes')} 
               className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
             >
               <span className="mr-2">Quizzes</span>
             </button>
             <button 
-              onClick={() => window.location.href = "/courselist"} 
+              onClick={() => navigate('/courselist')} 
               className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
             >
               <span className="mr-2">Course List</span>
@@ -161,18 +191,17 @@ const Dashboard = () => {
         </div>
       </div>
 
-
       {/* Enhanced floating quiz button */}
       <div className="fixed bottom-6 right-6 z-10 group">
         <button 
-          onClick={() => window.location.href = "/quizzes"} 
-          className="bg-white text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 flex items-center justify-center text-xl font-bold p-6 rounded-full border-2 border-indigo-200">
+          onClick={() => navigate('/quizzes')} 
+          className="bg-blue-500 text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 flex items-center justify-center text-xl font-bold p-6 rounded-full"
+        >
           Take a Quiz
         </button>
       </div>
-      
     </div>
   );
 };
-};
+
 export default Dashboard;

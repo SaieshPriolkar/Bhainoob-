@@ -11,6 +11,9 @@ import Landing from './components/Landing';
 import Quiz from './components/Quizzes';
 import CourseList from './components/Dashboard/course/coursepages';
 import Profile from "./components/profile";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PersonalizeDashboard from "./components/Personalization/personalizationDashboard";
+
 function App() {
   return (
     <Router>
@@ -19,11 +22,13 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={
-            
+            <ProtectedRoute>
                 <Landing />
-            } />
+                </ProtectedRoute>} />
+             
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/personalize-dashboard" element={<PersonalizeDashboard/>}/>
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/dashboard" element={<Dashbord />} />
             <Route path="/quizzes" element={<Quiz />} />

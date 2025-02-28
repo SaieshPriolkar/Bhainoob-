@@ -30,7 +30,7 @@ export default function Signup() {
       setError('');
       setLoading(true);
       await signup(email, password);
-      navigate('/');
+      navigate('/personalize-dashboard');
     } catch (error) {
       setError('Failed to create an account');
       console.error(error);
