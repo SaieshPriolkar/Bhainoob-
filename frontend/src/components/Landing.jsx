@@ -106,11 +106,21 @@ const AdaptiveLearningLandingPage = () => {
                   Our AI-powered platform customizes educational content in real-time based on your unique learning patterns and progress, ensuring you master concepts at your own pace.
                 </p>
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                  <div className="rounded-md shadow">
-                    <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
-                      Start Learning Now
-                    </a>
-                  </div>
+                <div className="rounded-md shadow">
+                <div className="rounded-md shadow">
+  <a 
+    href="https://drive.google.com/file/d/1lJjQiO67zCvWW0CgDf6O2eRx2WHBDF4K/view?usp=sharing" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
+  >
+    Watch a Demo <Play className="ml-2 h-5 w-5" />
+  </a>
+</div>
+
+</div>
+
+                  
                   <div className="mt-3 sm:mt-0 sm:ml-3">
                     <a href="#how-it-works" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
                       How It Works
@@ -321,10 +331,16 @@ const AdaptiveLearningLandingPage = () => {
         </a>
       </div>
       <div className="ml-3 inline-flex rounded-md shadow">
-        <a href="#" className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50">
-          Watch Demo <Play className="ml-2 h-5 w-5" />
-        </a>
-      </div>
+  <a 
+    href="https://drive.google.com/file/d/1lJjQiO67zCvWW0CgDf6O2eRx2WHBDF4K/view?usp=sharing" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-blue-50"
+  >
+    Watch a Demo <Play className="ml-2 h-5 w-5" />
+  </a>
+</div>
+
     </div>
   </div>
 </div>

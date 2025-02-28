@@ -30,7 +30,7 @@ export default function Signup() {
       setError('');
       setLoading(true);
       await signup(email, password);
-      navigate('/');
+      navigate('/personalize-dashboard');
     } catch (error) {
       setError('Failed to create an account');
       console.error(error);
@@ -47,7 +47,7 @@ export default function Signup() {
       setLoading(true);
       // Try popup first
       await googleSignIn();
-      navigate('/dashboard');
+      navigate('/personalize-dashboard');
     } catch (error) {
       // If popup is blocked, use redirect method instead
       if (error.code === 'auth/popup-blocked') {
