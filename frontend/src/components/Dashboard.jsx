@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import CourseCard from './Dashboard/CourseCard';
-import ProgressWidget from '../components/Dashboard/ProgressWidget';
-import RecommendationList from '../components/Dashboard/RecommendationList';
+import ProgressWidget from './Dashboard/ProgressWidget';
+import RecommendationList from './Dashboard/RecommendationList';
 import { User, ChevronDown, LogOut, Settings, HelpCircle, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -49,7 +49,6 @@ const Dashboard = () => {
     if (searchQuery.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
-  };
 
   if (isLoading) {
     return (

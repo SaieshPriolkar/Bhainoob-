@@ -47,7 +47,7 @@ export default function Signup() {
       setLoading(true);
       // Try popup first
       await googleSignIn();
-      navigate('/dashboard');
+      navigate('/personalize-dashboard');
     } catch (error) {
       // If popup is blocked, use redirect method instead
       if (error.code === 'auth/popup-blocked') {

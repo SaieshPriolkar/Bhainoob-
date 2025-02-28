@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Check, Loader } from 'lucide-react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
-import { auth, db } from '../../firebase/config';
+import { auth, db } from '../../../firebase/config';
 import { useNavigate } from 'react-router-dom';
 
 const RegistrationSummary = ({ userData, prevStep }) => {
@@ -51,7 +51,7 @@ const RegistrationSummary = ({ userData, prevStep }) => {
             <Check className="h-8 w-8 text-green-600" />
           </div>
         </div>
-        <h2 className="text-2xl font-bold text-gray-800">Registration Summary</h2>
+        <h2 className="text-2xl font-bold text-gray-800">Summary</h2>
         <p className="text-gray-600 mt-2">Please review your information</p>
       </div>
 
