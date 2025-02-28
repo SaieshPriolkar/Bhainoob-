@@ -30,20 +30,21 @@ const RecommendationList = ({ recommendations }) => {
             <div className="bg-purple-100 text-purple-800 rounded-full px-2 py-1 text-sm font-medium">
               {course.match}% match
             </div>
-            <div className="ml-2 text-yellow-500">
+            {/* <div className="ml-2 text-black">
               {Array(5).fill().map((_, i) => (
                 <span key={i} className="material-icons text-sm">
                   {i < Math.floor(course.match / 20) ? 'star' : 'star_border'}
                 </span>
               ))}
-            </div>
+            </div> */}
           </div>
           
-          <button className="mt-3 w-full py-2 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-md font-medium hover:from-pink-600 hover:to-orange-600 transition-colors duration-300">
+          <button className="mt-3 w-full py-2 bg-gradient-to-r from-indigo-500 to-indigo-500 text-white rounded-md font-medium hover:from-blue-600 hover:to-blue-500 transition-colors duration-300">
             Explore Course
           </button>
         </div>
       ))}
+
     </div>
   );
 };

@@ -25,7 +25,7 @@ const Dashboard = () => {
         courses: [
           { id: 1, title: "Introduction to Algebra", progress: 75, nextLesson: "Quadratic Equations" },
           { id: 2, title: "Creative Writing", progress: 45, nextLesson: "Character Development" },
-          { id: 3, title: "Biology 101", progress: 90, nextLesson: "Cellular Respiration" },
+          { id: 3, title: "Biology", progress: 90, nextLesson: "Cellular Respiration" },
         ],
         recommendations: [
           { id: 4, title: "Data Science Fundamentals", difficulty: "Intermediate", match: 95 },
@@ -41,29 +41,32 @@ const Dashboard = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center min-h-screen bg-indigo-50">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-purple-500"></div>
+      <div className="flex justify-center items-center min-h-screen bg-blue-100">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-black"></div>
       </div>
     );
   }
 
   return (
-    <div className="absolute top-0 left-0 min-h-screen w-full bg-gradient-to-br from-indigo-50 to-purple-100 p-6">
+    <div className="absolute top-0 left-0 min-h-screen w-full bg-blue-100 p-6">
       {/* Header */}
-      <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+      <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold text-purple-800">Welcome back, {userData.name}!</h1>
-            <p className="text-gray-600">Continue your learning journey</p>
+            <h1 className="text-3xl font-bold mb-2">
+              <span className="text-black">Welcome back, </span>
+              <span className="text-indigo-600">{userData.name}!</span>
+            </h1>
+            <p className="text-black">Continue your learning journey</p>
           </div>
-          <div className="flex items-center mt-4 md:mt-0">
-            <div className="bg-yellow-400 text-yellow-800 p-3 rounded-lg flex items-center mr-4">
-              <span className="material-icons mr-1">local_fire_department</span>
-              <span className="font-bold">{userData.streak} day streak</span>
+          <div className="flex items-center mt-4 md:mt-0 space-x-4">
+            <div className="bg-blue-50 p-4 rounded-xl flex items-center shadow-md">
+              <span className="material-icons mr-2 text-black">local_fire_department</span>
+              <span className="font-bold text-black">{userData.streak} day streak</span>
             </div>
-            <div className="bg-blue-400 text-blue-800 p-3 rounded-lg flex items-center">
-              <span className="material-icons mr-1">stars</span>
-              <span className="font-bold">{userData.totalPoints} points</span>
+            <div className="bg-blue-50 p-4 rounded-xl flex items-center shadow-md">
+              <span className="material-icons mr-2 text-black">stars</span>
+              <span className="font-bold text-black">{userData.totalPoints} points</span>
             </div>
           </div>
         </div>
@@ -72,22 +75,22 @@ const Dashboard = () => {
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Learning Progress */}
-        <div className="bg-white rounded-xl shadow-lg p-6 lg:col-span-2">
-          <h2 className="text-2xl font-bold text-purple-800 mb-4">Your Learning Progress</h2>
-          <div className="h-64">
+        <div className="bg-white rounded-2xl shadow-xl p-8 lg:col-span-2">
+          <h2 className="text-2xl font-bold text-black mb-6">Your Learning Progress</h2>
+          <div className="h-72">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={userData.progress}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis domain={[0, 100]} />
-                <Tooltip />
+                <CartesianGrid strokeDasharray="3 3" stroke="#EBF4FF" />
+                <XAxis dataKey="name" stroke="#000000" />
+                <YAxis domain={[0, 100]} stroke="#000000" />
+                <Tooltip contentStyle={{ backgroundColor: "white", borderRadius: "10px", boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }} />
                 <Line 
                   type="monotone" 
                   dataKey="score" 
-                  stroke="#8e44ad" 
+                  stroke="#2563EB" 
                   strokeWidth={3} 
-                  dot={{ fill: '#8e44ad', r: 6 }}
-                  activeDot={{ r: 8 }}
+                  dot={{ fill: '#2563EB', r: 6, strokeWidth: 2, stroke: "white" }}
+                  activeDot={{ r: 8, stroke: "white", strokeWidth: 2 }}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -95,9 +98,9 @@ const Dashboard = () => {
         </div>
 
         {/* Current Courses */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <h2 className="text-2xl font-bold text-purple-800 mb-4">Current Courses</h2>
-          <div className="space-y-4">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <h2 className="text-2xl font-bold text-black mb-6">Current Courses</h2>
+          <div className="space-y-6">
             {userData.courses.map(course => (
               <CourseCard key={course.id} course={course} />
             ))}
@@ -105,36 +108,36 @@ const Dashboard = () => {
         </div>
 
         {/* Recommended Courses */}
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <h2 className="text-2xl font-bold text-purple-800 mb-4">Recommended For You</h2>
-          <p className="text-gray-600 mb-4">Based on your learning patterns and interests</p>
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <h2 className="text-2xl font-bold text-black mb-4">Recommended For You</h2>
+          <p className="text-black mb-6">Based on your learning patterns and interests</p>
           <RecommendationList recommendations={userData.recommendations} />
         </div>
 
         {/* Weekly Goals */}
-        <div className="bg-white rounded-xl shadow-lg p-6 lg:col-span-2">
-          <h2 className="text-2xl font-bold text-purple-800 mb-4">Weekly Goals</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-white rounded-2xl shadow-xl p-8 lg:col-span-2">
+          <h2 className="text-2xl font-bold text-black mb-6">Weekly Goals</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <ProgressWidget 
               title="Study Time" 
               current={12} 
               target={15} 
               unit="hours"
-              color="bg-pink-500" 
+              color="bg-blue-400" 
             />
             <ProgressWidget 
               title="Quizzes Completed" 
               current={7} 
               target={10} 
               unit="quizzes"
-              color="bg-green-500" 
+              color="bg-blue-500" 
             />
             <ProgressWidget 
               title="New Concepts" 
               current={18} 
               target={25} 
               unit="concepts"
-              color="bg-blue-500" 
+              color="bg-blue-600" 
             />
           </div>
         </div>
@@ -144,8 +147,8 @@ const Dashboard = () => {
       <div className="fixed bottom-6 right-6 z-10 group">
         <button 
           onClick={() => window.location.href = "/quizzes"} 
-          className="bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-bold p-4 w-16 h-16 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition duration-300 flex items-center justify-center text-2xl "  >
-          Quiz
+          className="bg-white text-indigo shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 flex items-center justify-center text-xl font-bold p-6 rounded-full border-2 border-blue-00">
+          Take a Quiz
         </button>
       </div>
     </div>

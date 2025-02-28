@@ -40,7 +40,7 @@ const AdaptiveLearningLandingPage = () => {
 
   return (
     <div className="absolute top-0 left-0 min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      /* Navigation */
+    
         <nav className="bg-white shadow-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16">
@@ -54,7 +54,7 @@ const AdaptiveLearningLandingPage = () => {
             <span className="text-2xl font-bold text-indigo-600">AdaptLearn</span>
           </div>
           
-          {/* Desktop Navigation */}
+         
             <div className="hidden md:flex items-center space-x-8">
               <a href="#" className="text-gray-700 hover:text-indigo-600 font-medium">  Features</a>
               <a href="#how-it-works" className="text-gray-700 hover:text-indigo-600 font-medium">How It Works</a>
@@ -117,11 +117,11 @@ const AdaptiveLearningLandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        {/* <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
           <img className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="/api/placeholder/800/600" alt="Student learning" />
-        </div>
+        </div> */}
         <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-    <img className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="bg.webp" alt="Student learning" />
+   
     
   </div>
       </div>
