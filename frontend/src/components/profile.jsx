@@ -1,5 +1,4 @@
 import React from 'react';
-
 const Profile = () => {
   const userProfile = {
     email: "vigneshgaunker@gmail.com",
@@ -9,15 +8,14 @@ const Profile = () => {
     learningStyle: "Reading",
     studyGoals: "Learn new skills for career advancement"
   };
-
   return (
-    <div className="min-h-screen bg-blue-100 flex justify-center items-center p-4">
+    <div className="fixed inset-0 w-full h-full bg-gradient-to-r from-blue-50 to-white flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
-        <div className="p-6 space-y-6">
+        <div className="p-4 md:p-6 space-y-4 md:space-y-6">
           {/* Email Section */}
           <div>
             <h3 className="text-gray-500 text-sm font-medium mb-1">Email</h3>
-            <p className="text-black text-base font-medium">{userProfile.email}</p>
+            <p className="text-black text-base font-medium break-words">{userProfile.email}</p>
           </div>
           
           {/* Grade Section */}
@@ -28,8 +26,8 @@ const Profile = () => {
           
           {/* Interests Section */}
           <div>
-            <h3 className="text-gray-500 text-sm font-medium mb-1">Interests</h3>
-            <div className="flex flex-wrap gap-2">
+           <h3 className="text-gray-500 text-sm font-medium mb-1 text-center">Interests</h3>
+            <div className="flex flex-wrap justify-center gap-2">
               {userProfile.interests.map((interest, index) => (
                 <span 
                   key={index} 
@@ -43,8 +41,8 @@ const Profile = () => {
           
           {/* Subjects Section */}
           <div>
-            <h3 className="text-gray-500 text-sm font-medium mb-1">Subjects</h3>
-            <div className="flex flex-wrap gap-2">
+            <h3 className="text-gray-500 text-sm font-medium mb-1 text-center">Subjects</h3>
+            <div className="flex flex-wrap justify-center gap-2">
               {userProfile.subjects.map((subject, index) => (
                 <span 
                   key={index} 
@@ -70,15 +68,15 @@ const Profile = () => {
         </div>
         
         {/* Navigation Buttons */}
-        <div className="flex border-t border-gray-200">
+        <div className="flex justify-center p-4 gap-4 border-t border-gray-200">
           <button 
-            className="w-1/2 py-4 text-gray-600 hover:bg-gray-50 transition-colors duration-200 font-medium"
+            className="w-32 py-2 text-sm bg-purple-100 text-gray-700  text-white rounded-md hover:bg-gray-300 transition-colors duration-200 font-medium"
             onClick={() => console.log("Back clicked")}
           >
             Back
           </button>
           <button 
-            className="w-1/2 py-4 bg-blue-500 text-white hover:bg-blue-600 transition-colors duration-200 font-medium"
+            className="w-30  py-2 text-sm bg-purple-100 text-white rounded-md hover:bg-purple-600 transition-colors duration-200 font-medium"
             onClick={() => console.log("Complete Registration clicked")}
           >
             Complete Registration
@@ -88,5 +86,4 @@ const Profile = () => {
     </div>
   );
 };
-
 export default Profile;

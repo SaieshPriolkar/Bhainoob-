@@ -5,13 +5,10 @@ import ProgressWidget from '../components/Dashboard/ProgressWidget';
 import RecommendationList from '../components/Dashboard/RecommendationList';
 import { User, ChevronDown, LogOut, Settings, HelpCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-const Dashboard = () => {
-  const [userData, setUserData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const navigate = useNavigate();
 
 const Dashboard = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -173,6 +170,5 @@ const Dashboard = () => {
       
     </div>
   );
-};
 };
 export default Dashboard;
