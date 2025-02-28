@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import CourseCard from '../components/Dashboard/CourseCard';
+import CourseCard from './Dashboard/CourseCard';
 import ProgressWidget from '../components/Dashboard/ProgressWidget';
 import RecommendationList from '../components/Dashboard/RecommendationList';
+import { User, ChevronDown, LogOut, Settings, HelpCircle } from 'lucide-react';
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   // Simulated data - to be replaced with API calls
   useEffect(() => {
@@ -14,6 +16,8 @@ const Dashboard = () => {
     setTimeout(() => {
       setUserData({
         name: "Alex Johnson",
+        email: "alex.johnson@example.com",
+        accountType: "Premium",
         progress: [
           { name: 'Week 1', score: 65 },
           { name: 'Week 2', score: 70 },
@@ -39,6 +43,21 @@ const Dashboard = () => {
     }, 1000);
   }, []);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setDropdownOpen(false);
+    };
+    
+    if (dropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [dropdownOpen]);
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen bg-blue-100">
@@ -59,14 +78,59 @@ const Dashboard = () => {
             </h1>
             <p className="text-black">Continue your learning journey</p>
           </div>
-          <div className="flex items-center mt-4 md:mt-0 space-x-4">
+          <div className="flex flex-col sm:flex-row items-center mt-4 md:mt-0 space-y-3 sm:space-y-0 sm:space-x-4">
+            {/* Streak Card */}
             <div className="bg-blue-50 p-4 rounded-xl flex items-center shadow-md">
               <span className="material-icons mr-2 text-black">local_fire_department</span>
               <span className="font-bold text-black">{userData.streak} day streak</span>
             </div>
+            
+            {/* Points Card */}
             <div className="bg-blue-50 p-4 rounded-xl flex items-center shadow-md">
               <span className="material-icons mr-2 text-black">stars</span>
               <span className="font-bold text-black">{userData.totalPoints} points</span>
+            </div>
+            
+            {/* Account Dropdown - Updated to be small, white, same location */}
+            <div className="relative">
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setDropdownOpen(!dropdownOpen);
+                }}
+                className="bg-white p-2 rounded-xl flex items-center shadow-md hover:bg-blue"
+              >
+                <User className="h-12 w-5 text-white" />
+                <ChevronDown className="h-4 w-4 ml-1 text-white" />
+              </button>
+              
+              {/* Dropdown Menu */}
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-10">
+                  <div className="px-4 py-2 border-b border-gray-100">
+                    <p className="font-bold text-black">{userData.name}</p>
+                    <p className="text-xs text-gray-600">{userData.email}</p>
+                    <p className="text-xs font-medium text-indigo-600 mt-1">{userData.accountType}</p>
+                  </div>
+                  <a href="/profile" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">
+                    <User className="h-4 w-4 mr-2 text-indigo-600" />
+                    My Profile
+                  </a>
+                  <a href="/settings" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">
+                    <Settings className="h-4 w-4 mr-2 text-indigo-600" />
+                    Account Settings
+                  </a>
+                  <a href="/help" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">
+                    <HelpCircle className="h-4 w-4 mr-2 text-indigo-600" />
+                    Help Center
+                  </a>
+                  <div className="border-t border-gray-100 my-1"></div>
+                  <a href="/logout" className="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                    <LogOut className="h-4 w-4 mr-2 text-red-600" />
+                    Log Out
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -122,21 +186,21 @@ const Dashboard = () => {
               title="Study Time" 
               current={12} 
               target={15} 
-              unit="hours"
+              unit="Hours"
               color="bg-blue-400" 
             />
             <ProgressWidget 
               title="Quizzes Completed" 
               current={7} 
               target={10} 
-              unit="quizzes"
+              unit="Quizzes"
               color="bg-blue-500" 
             />
             <ProgressWidget 
               title="New Concepts" 
               current={18} 
               target={25} 
-              unit="concepts"
+              unit="Concepts"
               color="bg-blue-600" 
             />
           </div>
@@ -147,7 +211,7 @@ const Dashboard = () => {
       <div className="fixed bottom-6 right-6 z-10 group">
         <button 
           onClick={() => window.location.href = "/quizzes"} 
-          className="bg-white text-indigo shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 flex items-center justify-center text-xl font-bold p-6 rounded-full border-2 border-blue-00">
+          className="bg-white text-white shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 flex items-center justify-center text-xl font-bold p-6 rounded-full border-2 border-indigo-200">
           Take a Quiz
         </button>
       </div>

@@ -1,79 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Landing from "./components/Landing";
-import CourseCard from './components/Dashboard/CourseCard';
-import Dashboard from './components/Dashbord';
-import ProgressWidget from './components/Dashboard/ProgressWidget';
-import RecommendationList from './components/Dashboard/RecommendationList';
-import Quizzes from './components/Quizzes';
+import React from "react";
+import "./App.css";
 
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div>
-        <Landing/>
-      </div>
-    ),
-  },
-  {
-    path: "/coursecard",
-    element: (
-      <div>
-        <CourseCard/>
-      </div>
-    ),
-  },
-  {
-    path: "/dashboard",
-    element: (
-      <div>
-        <Dashboard/>
-      </div>
-    ),
-  },
-  {
-    path: "/progresswidget",
-    element: (
-      <div>
-        <ProgressWidget/>
-      </div>
-    ),
-  },
-  {
-    path: "/recomendation",
-    element: (
-      <div>
-        <RecommendationList/>
-      </div>
-    ),
-  },
-  {
-    path: "/quizzes",
-    element: (
-      <div>
-        <Quizzes/>
-      </div>
-    ),
-  },
-
-
-  
-  
-]);
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Navbar from './components/Navbar';
+import Dashbord from './components/Dashbord';
+import Login from './pages/login';
+import Signup from './pages/signup';
+import ForgotPassword from './pages/forgotPassword';
 
 function App() {
-
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  )
+    <Router>
+      <AuthProvider>
+        <div className="min-h-screen bg-gray-100">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={
+              <ProtectedRoute>
+                <Dashbord />
+              </ProtectedRoute>
+            } />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+          </Routes>
+        </div>
+      </AuthProvider>
+    </Router>
+  );
 }
 
-export default App
+export default App;
