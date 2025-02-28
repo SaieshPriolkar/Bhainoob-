@@ -3,10 +3,12 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import CourseCard from './Dashboard/CourseCard';
 import ProgressWidget from '../components/Dashboard/ProgressWidget';
 import RecommendationList from '../components/Dashboard/RecommendationList';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   // Simulated data - to be replaced with API calls
   useEffect(() => {
@@ -60,14 +62,24 @@ const Dashboard = () => {
             <p className="text-black">Continue your learning journey</p>
           </div>
           <div className="flex items-center mt-4 md:mt-0 space-x-4">
-            <div className="bg-blue-50 p-4 rounded-xl flex items-center shadow-md">
-              <span className="material-icons mr-2 text-black">local_fire_department</span>
-              <span className="font-bold text-black">{userData.streak} day streak</span>
-            </div>
-            <div className="bg-blue-50 p-4 rounded-xl flex items-center shadow-md">
-              <span className="material-icons mr-2 text-black">stars</span>
-              <span className="font-bold text-black">{userData.totalPoints} points</span>
-            </div>
+            <button 
+              onClick={() => window.location.href = "/profile"} 
+              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
+            >
+              <span className="mr-2">Profile</span>
+            </button>
+            <button 
+              onClick={() => navigate("/quizzes")}
+              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
+            >
+              <span className="mr-2">Quizzes</span>
+            </button>
+            <button 
+              onClick={() => navigate("/Courselist")}
+              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
+            >
+              <span className="mr-2">Course List</span>
+            </button>
           </div>
         </div>
       </div>
@@ -141,15 +153,6 @@ const Dashboard = () => {
             />
           </div>
         </div>
-      </div>
-
-      {/* Enhanced floating quiz button */}
-      <div className="fixed bottom-6 right-6 z-10 group">
-        <button 
-          onClick={() => window.location.href = "/quizzes"} 
-          className="bg-white text-indigo shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 flex items-center justify-center text-xl font-bold p-6 rounded-full border-2 border-blue-00">
-          Take a Quiz
-        </button>
       </div>
     </div>
   );

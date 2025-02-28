@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { ArrowRight, Brain, BarChart2, Book, Award, Play, Menu, X } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const AdaptiveLearningLandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const navigate = useNavigate();
   // Sample progress data
   const progressData = [
     { week: 'Week 1', value: 20 },

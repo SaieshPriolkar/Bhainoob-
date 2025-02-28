@@ -8,7 +8,8 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import ForgotPassword from './pages/forgotPassword';
 import Landing from './components/Landing';
-
+import Quiz from './components/Quizzes';
+import CourseList from './components/Dashboard/course/coursepages';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/dashboard" element={<Dashbord />} />
+            <Route path="/quizzes" element={<Quiz />} />
+            <Route path="/Courselist" element={<CourseList/>} />
 
 
           </Routes>
