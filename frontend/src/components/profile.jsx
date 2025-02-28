@@ -1,5 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 const Profile = () => {
+  const navigate = useNavigate();
   const userProfile = {
     email: "vigneshgaunker@gmail.com",
     grade: "College Junior",
@@ -7,6 +9,11 @@ const Profile = () => {
     subjects: ["Psychology"],
     learningStyle: "Reading",
     studyGoals: "Learn new skills for career advancement"
+  };
+
+  const handleLogout = () => {
+    // Add any logout logic here (e.g., clearing auth state)
+    navigate('/');
   };
   return (
     <div className="fixed inset-0 w-full h-full bg-gradient-to-r from-blue-50 to-white flex items-center justify-center p-4">
@@ -77,9 +84,9 @@ const Profile = () => {
           </button>
           <button 
             className="w-30  py-2 text-sm bg-purple-100 text-white rounded-md hover:bg-purple-600 transition-colors duration-200 font-medium"
-            onClick={() => console.log("Complete Registration clicked")}
+            onClick={handleLogout}
           >
-            Complete Registration
+           Log Out 
           </button>
         </div>
       </div>
