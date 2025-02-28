@@ -18,17 +18,17 @@ const CourseCard = ({ course }) => {
       {/* Progress Bar */}
       <div className="w-full bg-gray-200 rounded-full h-4 mt-3 mb-2">
         <div 
-          className="bg-gradient-to-r from-purple-500 to-pink-500 h-4 rounded-full" 
+          className="bg-gradient-to-r from-blue-400 to-blue-600 h-4 rounded-full" 
           style={{ width: `${courseData.progress}%` }}
         ></div>
       </div>
       
       <div className="flex justify-between items-center">
         <span className="text-gray-600 text-sm">{courseData.progress}% complete</span>
-        <span className="text-purple-700 text-sm font-medium">Next: {courseData.nextLesson}</span>
+        <span className="text-black text-sm font-medium">Next: {courseData.nextLesson}</span>
       </div>
       
-      <button className="mt-3 w-full py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-md font-medium hover:from-indigo-600 hover:to-purple-700 transition-colors duration-300">
+      <button className="mt-3 w-full py-2 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white rounded-md font-medium hover:from-indigo-600 hover:to-purple transition-colors duration-300">
         Continue Learning
       </button>
     </div>
