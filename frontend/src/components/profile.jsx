@@ -77,7 +77,7 @@ const Profile = () => {
         {/* Navigation Buttons */}
         <div className="flex justify-center p-4 gap-4 border-t border-gray-200">
           <button 
-            className="w-32 py-2 text-sm bg-purple-100 text-gray-700  text-white rounded-md hover:bg-gray-300 transition-colors duration-200 font-medium"
+            className="w-32 py-2 text-sm bg-purple-100 text-white rounded-md hover:bg-gray-300 transition-colors duration-200 font-medium"
             onClick={() => console.log("Back clicked")}
           >
             Back

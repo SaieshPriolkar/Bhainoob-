@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import CourseCard from './Dashboard/CourseCard';
-<<<<<<< HEAD:frontend/src/components/Dashbord.jsx
 import ProgressWidget from '../components/Dashboard/ProgressWidget';
 import RecommendationList from '../components/Dashboard/RecommendationList';
-=======
-import ProgressWidget from './Dashboard/ProgressWidget';
-import RecommendationList from './Dashboard/RecommendationList';
->>>>>>> 33e8c38915e2f0de9802e347127bc3f4398a2eec:frontend/src/components/Dashboard.jsx
 import { User, ChevronDown, LogOut, Settings, HelpCircle, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -54,10 +49,7 @@ const Dashboard = () => {
     if (searchQuery.trim()) {
       navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
-<<<<<<< HEAD:frontend/src/components/Dashbord.jsx
   };
-=======
->>>>>>> 33e8c38915e2f0de9802e347127bc3f4398a2eec:frontend/src/components/Dashboard.jsx
 
   if (isLoading) {
     return (

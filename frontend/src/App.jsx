@@ -10,11 +10,12 @@ import ForgotPassword from './pages/forgotPassword';
 import Landing from './components/Landing';
 import Quiz from './gemini/components/Quiz';
 import Profile from "./components/profile";
-import LearningModule from "./gemini/components/Learning"; 
+import LearningModule from "./gemini/components/geminimain"; 
 import CourseList from "./gemini/components/CourseList";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PersonalizeDashboard from "./components/Personalization/personalizationDashboard";
 import RecommendationForm from "./components/Personalization/RegistrationForm/RegistrationForm";
+import Gemini from "./gemini/components/geminimain";
 
 function App() {
   const [courses, setCourses] = useState([]); // State to store courses
@@ -46,15 +47,11 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/quizzes" element={<Quiz />} />
             <Route 
-              path="/courselist" 
-              element={<CourseList 
-                courses={courses} 
-                onAddCourse={handleAddCourse} 
-                onContinueCourse={handleContinueCourse} 
-              />} 
-            />
+              path="/courselist" element={<CourseList />}/>
             <Route path="/profile" element={<Profile />} />
             <Route path="/learning/:section" element={<LearningModule />} />
+            <Route path="/gemini" element={<Gemini />} />
+            <Route path="/personaliazed" element={<PersonalizeDashboard/>}/>
           </Routes>
         </div>
       </AuthProvider>

@@ -16,7 +16,6 @@ const Quiz = ({ topic, quizAttempts, onQuizComplete, onRetry }) => {
     const loadQuiz = async () => {
       setLoading(true);
       try {
-        // Determine difficulty based on previous attempts
         let quizDifficulty = 'medium';
         if (quizAttempts === 1) quizDifficulty = 'easy';
         else if (quizAttempts === 2) quizDifficulty = 'medium';
@@ -40,12 +39,10 @@ const Quiz = ({ topic, quizAttempts, onQuizComplete, onRetry }) => {
   };
 
   const handleNextQuestion = () => {
-    // Update score if answer is correct
     if (selectedOption === questions[currentQuestion].correctAnswer) {
       setScore(score + 1);
     }
 
-    // Move to next question or show results
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedOption(null);
@@ -55,7 +52,6 @@ const Quiz = ({ topic, quizAttempts, onQuizComplete, onRetry }) => {
   };
 
   const finishQuiz = async () => {
-    // Calculate final score including the last question
     const finalScore = selectedOption === questions[currentQuestion].correctAnswer 
       ? score + 1 
       : score;

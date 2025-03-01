@@ -25,7 +25,7 @@ export default function Login() {
       setError('');
       setLoading(true);
       await login(email, password);
-      navigate('/dashboard');
+      navigate('/gemini');
     } catch (error) {
       setError('Failed to sign in. Please check your credentials.');
       console.error(error);
@@ -42,7 +42,7 @@ export default function Login() {
       setLoading(true);
       // Try popup first
       await googleSignIn();
-      navigate('/dashboard');
+      navigate('/gemini');
     } catch (error) {
       // If popup is blocked, use redirect method instead
       if (error.code === 'auth/popup-blocked') {

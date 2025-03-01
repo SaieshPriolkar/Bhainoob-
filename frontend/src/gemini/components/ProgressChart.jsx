@@ -34,9 +34,9 @@ const ProgressChart = ({ data, topic }) => {
   
   // Create SVG path
   const pathData = points.map((point, index) => 
-    (index === 0 ? 'M' : 'L') + `${point.x},${point.y}`
+    `${index === 0 ? 'M' : 'L'}${point.x},${point.y}`
   ).join(' ');
-  
+
   return (
     <div className="bg-white p-4 rounded-lg shadow-lg">
       <h3 className="font-semibold text-gray-900 mb-4">Learning Progress: {topic}</h3>

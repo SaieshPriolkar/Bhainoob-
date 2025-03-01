@@ -1,8 +1,45 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const API_KEY = "AIzaSyB_R3-BLBlWg0ozsy6kwhEESKNVLBoWi6Y"; // Use a valid API key from your environment
+const API_KEY = "AIzaSyCXRYTrexWmzrzGl5ADBCZv6h258zjfZ14"; // Replace with a valid API key from your environment
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+
+/**
+ * @typedef {Object} SubSection
+ * @property {string} title - The title of the subsection
+ * @property {string} content - The content of the subsection
+ */
+
+/**
+ * @typedef {Object} Course
+ * @property {string} title - The title of the course
+ * @property {string} content - The content of the course
+ */
+
+/**
+ * @typedef {Object} QuizQuestion
+ * @property {string} question - The question text
+ * @property {string[]} options - Array of 4 answer options
+ * @property {number} correctAnswer - Index of the correct answer (0-3)
+ */
+
+const subSection = {
+  title: "",
+  content: ""
+};
+
+const Course = {
+  title: "",
+  content: ""
+};
+
+const QuizQuestion = {
+  question: "",
+  options: ["", "", "", ""],
+  correctAnswer: 0
+};
+
+
 
 export async function generateSubSections(topic) {
   try {
@@ -70,3 +107,6 @@ export async function analyzeQuizPerformance(score, totalQuestions) {
     return { feedback: "Review the material and try again.", nextDifficulty, performancePercentage };
   }
 }
+
+
+export {subSection,Course,QuizQuestion}
