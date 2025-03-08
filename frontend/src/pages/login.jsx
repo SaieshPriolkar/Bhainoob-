@@ -14,7 +14,7 @@ export default function Login() {
   // Redirect if user is already logged in
   useEffect(() => {
     if (currentUser) {
-      navigate('/personalize-dashboard');
+      navigate('/gemini');
     }
   }, [currentUser, navigate]);
 

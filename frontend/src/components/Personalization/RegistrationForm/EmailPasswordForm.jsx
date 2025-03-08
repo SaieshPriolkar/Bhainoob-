@@ -50,7 +50,7 @@ const EmailPasswordForm = ({ userData, setUserData, nextStep }) => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className=" w-full max-w-md mx-auto">
       <div className="mb-8 text-center">
         <h2 className="text-2xl font-bold text-gray-800">Create your account</h2>
         <p className="text-gray-600 mt-2">Enter your email and create a password</p>
@@ -62,7 +62,7 @@ const EmailPasswordForm = ({ userData, setUserData, nextStep }) => {
             Email
           </label>
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none ">
               <Mail className="h-5 w-5 text-gray-400" />
             </div>
             <input
@@ -70,7 +70,7 @@ const EmailPasswordForm = ({ userData, setUserData, nextStep }) => {
               type="email"
               value={userData.email}
               onChange={(e) => setUserData({ ...userData, email: e.target.value })}
-              className={`block w-full pl-10 pr-3 py-2 border ${
+              className={` text-black block w-full pl-10 pr-3 py-2 border ${
                 errors.email ? 'border-red-500' : 'border-gray-300'
               } rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
               placeholder="you@example.com"
@@ -92,7 +92,7 @@ const EmailPasswordForm = ({ userData, setUserData, nextStep }) => {
               type="password"
               value={userData.password}
               onChange={(e) => setUserData({ ...userData, password: e.target.value })}
-              className={`block w-full pl-10 pr-3 py-2 border ${
+              className={`text-black block w-full pl-10 pr-3 py-2 border ${
                 errors.password ? 'border-red-500' : 'border-gray-300'
               } rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
               placeholder="••••••••"
@@ -114,7 +114,7 @@ const EmailPasswordForm = ({ userData, setUserData, nextStep }) => {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className={`block w-full pl-10 pr-3 py-2 border ${
+              className={`text-black block w-full pl-10 pr-3 py-2 border ${
                 errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
               } rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500`}
               placeholder="••••••••"

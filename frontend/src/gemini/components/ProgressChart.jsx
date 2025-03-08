@@ -39,14 +39,14 @@ const ProgressChart = ({ data, topic }) => {
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-lg">
-      <h3 className="font-semibold text-gray-900 mb-4">Learning Progress: {topic}</h3>
+      <h3 className="font-semibold text-gray-900 mb-4 capitalize">Learning Progress: {topic}</h3>
       
       <div className="relative h-48">
         <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full">
           {/* Y-axis labels */}
-          <text x="5" y="15" className="text-xs fill-gray-500">100%</text>
-          <text x="5" y="50" className="text-xs fill-gray-500">50%</text>
-          <text x="5" y="95" className="text-xs fill-gray-500">0%</text>
+          <text x="6" y="10" className="text-[8px] fill-gray-500">100%</text>
+          <text x="6" y="45" className="text-[8px] fill-gray-500">50%</text>
+          <text x="6" y="80" className="text-[8px] fill-gray-500">0%</text>
           
           {/* X-axis labels */}
           {chartData.map((point, index) => (

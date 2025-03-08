@@ -96,31 +96,31 @@ const Dashboard = () => {
             </form>
           </div>
           
-          {/* Navigation Buttons */}
-          <div className="flex items-center space-x-4">
-            <button 
-              onClick={() => navigate('/profile')} 
-              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
-            >
-              <span className="mr-2">Profile</span>
-            </button>
-            <button 
-              onClick={() => navigate('/quizzes')} 
-              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
-            >
-              <span className="mr-2">Quizzes</span>
-            </button>
-            <button 
-              onClick={() => navigate('/courselist')} 
-              className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-xl flex items-center shadow-md transition duration-300"
-            >
-              <span className="mr-2">Course List</span>
-            </button>
-          </div>
-        </div>
-      </div>
+          ffffff
+                <div className="flex items-center space-x-4">
+                <button 
+                  onClick={() => navigate('/profile')} 
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl flex items-center shadow-md transition duration-300"
+                >
+                  <span className="mr-2">Profile</span>
+                </button>
+                <button 
+                  onClick={() => navigate('/quizzes')} 
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl flex items-center shadow-md transition duration-300"
+                >
+                  <span className="mr-2">Quiz</span>
+                </button>
+                <button 
+                  onClick={() => navigate('/courselist')} 
+                  className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl flex items-center shadow-md transition duration-300"
+                >
+                  <span className="mr-2">Course List</span>
+                </button>
+                </div>
+              </div>
+              </div>
 
-      {/* Main Content Grid */}
+              {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Learning Progress */}
         <div className="bg-white rounded-2xl shadow-xl p-8 lg:col-span-2">

@@ -3,7 +3,7 @@ import React from 'react';
 const CourseList = ({ courses, onContinueCourse }) => {
   return (
     <div className="bg-white rounded-lg shadow-lg p-6">
-      <h2 className="text-xl font-bold mb-4">Current Courses</h2>
+      <h2 className="text-xl font-bold text-black mb-4">Current Courses</h2>
       
       {courses.length === 0 ? (
         <div className="text-center py-8 text-gray-500">

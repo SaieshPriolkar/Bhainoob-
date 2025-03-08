@@ -175,12 +175,12 @@ const App = () => {
 
   if (!isInputSubmitted) {
     return (
-      <div className="min-h-screen bg-gray-50 flex flex-col">
+      <div className="absolute  top-0 left-0 w-full min-h-screen bg-gray-50 flex flex-col">
         <header className="bg-white shadow-sm p-4">
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             <div className="flex items-center space-x-2">
               <BookOpen className="h-6 w-6 text-indigo-600" />
-              <h1 className="text-xl font-bold text-gray-900">LearnHub</h1>
+              <h2 className="text-xl font-bold text-gray-900">     LearnHub</h2>
             </div>
           </div>
         </header>
@@ -189,7 +189,7 @@ const App = () => {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2">
               <div className="bg-white rounded-lg shadow-lg p-8">
-                <h2 className="text-2xl font-bold text-center mb-6">Welcome to LearnHub</h2>
+                <h2 className="text-2xl font-bold text-center text-gray-900 mb-6">Welcome to LearnHub</h2>
                 <p className="text-gray-600 mb-6 text-center">
                   Enter a topic you'd like to learn about and we'll create a personalized learning path for you.
                 </p>
@@ -204,7 +204,7 @@ const App = () => {
                       id="section"
                       value={section}
                       onChange={(e) => setSection(e.target.value)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="w-full px-4 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
                       placeholder="e.g., JavaScript, Machine Learning, Photography"
                       required
                     />
@@ -232,16 +232,16 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="absolute top-0 left-0 w-full min-h-screen bg-gray-50 flex flex-col">
       <header className="bg-white shadow-sm p-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <BookOpen className="h-6 w-6 text-indigo-600" />
-            <h1 className="text-xl font-bold text-gray-900">LearnHub</h1>
+            <h1 className="text-xl font-bold text-gray-900">   LearnHub</h1>
           </div>
           <div className="flex items-center space-x-4">
             <button 
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+              className="px-4 py-2 text-sm font-medium text-white bg-white border border-gray-300 rounded-md hover:bg-gray-50"
               onClick={resetCourse}
             >
               New Topic
@@ -250,7 +250,7 @@ const App = () => {
               Profile
             </button>
             <button className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700">
-              Quizzes
+              Quiz
             </button>
           </div>
         </div>
@@ -260,7 +260,7 @@ const App = () => {
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-gray-900">
-              Learning: <span className="text-indigo-600">{section}</span>
+              Learning: <span className="text-indigo-500 capitalize">{section}</span>
             </h2>
             <div className="mt-4 flex items-center">
               <div className="flex-grow bg-gray-200 rounded-full h-2.5">
@@ -273,7 +273,7 @@ const App = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 text-black">
             <div className="lg:col-span-2">
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 {loading ? (
@@ -300,13 +300,13 @@ const App = () => {
                       <button
                         onClick={handlePrevSubSection}
                         disabled={currentSubSection === 0}
-                        className={`flex items-center px-4 py-2 rounded-md ${
+                        className={`text-white flex items-center px-4 py-2 rounded-md ${
                           currentSubSection === 0
                             ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                             : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                       >
-                        <ChevronLeft className="h-5 w-5 mr-1" />
+                        <ChevronLeft className="text-white h-5 w-5 mr-1"/>
                         Previous
                       </button>
                       <button

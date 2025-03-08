@@ -34,7 +34,7 @@ const RegistrationSummary = ({ userData, prevStep }) => {
       });
       
       // Navigate to dashboard or recommendations page
-      navigate('/dashboard');
+      navigate('/gemini');
     } catch (err) {
       console.error('Error during registration:', err);
       setError(err instanceof Error ? err.message : 'An error occurred during registration');
@@ -59,12 +59,12 @@ const RegistrationSummary = ({ userData, prevStep }) => {
         <div className="space-y-4">
           <div>
             <h3 className="text-sm font-medium text-gray-500">Email</h3>
-            <p className="mt-1">{userData.email}</p>
+            <p className="mt-1 text-black">{userData.email}</p>
           </div>
           
           <div>
             <h3 className="text-sm font-medium text-gray-500">Grade</h3>
-            <p className="mt-1">{userData.grade}</p>
+            <p className="mt-1 text-black">{userData.grade}</p>
           </div>
           
           <div>
@@ -91,12 +91,12 @@ const RegistrationSummary = ({ userData, prevStep }) => {
           
           <div>
             <h3 className="text-sm font-medium text-gray-500">Learning Style</h3>
-            <p className="mt-1 capitalize">{userData.learningStyle}</p>
+            <p className="mt-1 capitalize text-black">{userData.learningStyle}</p>
           </div>
           
           <div>
             <h3 className="text-sm font-medium text-gray-500">Study Goals</h3>
-            <p className="mt-1">{userData.studyGoals}</p>
+            <p className="mt-1 text-black">{userData.studyGoals}</p>
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@ const RegistrationSummary = ({ userData, prevStep }) => {
       <div className="flex justify-between">
         <button
           onClick={prevStep}
-          className="px-4 py-2 text-gray-600 hover:text-gray-800"
+          className="px-4 py-2 text-white-600 hover:text-gray-800"
           disabled={isSubmitting}
         >
           Back
